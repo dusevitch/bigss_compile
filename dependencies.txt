@@ -1,0 +1,15 @@
+libxml2-devlibraw1394-dev
+libncurses5-dev
+qtcreator
+swig
+sox
+espeak
+cmake-curses-gui
+cmake-qt-gui
+git
+subversion
+gfortran
+libcppunit-dev
+libqt5xmlpatterns5-dev
+python-catkin-tools
+ninja-build
