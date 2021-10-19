@@ -103,8 +103,8 @@ echo ""
 echo ""
 # run .rosinstall file
 
-git config --global credential.helper 'cache --timeout=120'
-vcs import < ../../bigss_repos.rosinstall --workers 1 # TODO: change the reliant piece of this
+git config --global credential.helper 'cache --timeout=12000'
+vcs import < ../../cisst_repos.rosinstall --workers 1 # TODO: change the reliant piece of this
 
 # Update to install the latest versions
 vcs pull src
@@ -118,29 +118,36 @@ cd $BASE_FOLDER/catkin_ws/
 source /opt/ros/$VERSION/setup.bash
 mkdir -p ignore_src
 cd $BASE_FOLDER/catkin_ws/src
-mv -t ../../ignore_src sawATIForceSensor/ sawClaronMicronTracker/ sawConstraintController/ sawForceDimensionSDK/ sawOptoforceSensor/  sawUniversalRobot
+sudo mv -t ../../ignore_src sawATIForceSensor/ sawClaronMicronTracker/ sawConstraintController/ sawForceDimensionSDK/ sawOptoforceSensor/  sawUniversalRobot
 cisst_DIR=$BASE_FOLDER/catkin_ws/src/cisst-saw # set cisst dir variable
 #    TODO: Eventually remove crtk_msgs.git install (or at least check for it) from the .rosinstall file
 catkin build --summary
 source devel/setup.bash
 
-# TODO: Test Driver Installation
-# # MAXON Drivers Installation
-# # TODO: check if the file is already installed
-# echo "Installing EPOS2 Drivers to Communicate with Maxon Motors"
-# curl -o filename https://git.lcsr.jhu.edu/bigss/drivers/-/blob/main/EPOS-Linux-Library-En.zip
-# tar xcgf -x EPOS-Linux_Library-En.zip
-# chmod +x install.sh
-# sudo ./install.sh
+# # TODO: Test Driver Installation
+# # # MAXON Drivers Installation
+# # # TODO: check if the file is already installed
+# # echo "Installing EPOS2 Drivers to Communicate with Maxon Motors"
+# # curl -o filename https://git.lcsr.jhu.edu/bigss/drivers/-/blob/main/EPOS-Linux-Library-En.zip
+# # tar xcgf -x EPOS-Linux_Library-En.zip
+# # chmod +x install.sh
+# # sudo ./install.sh
 
-# Build BIGSS Util 
-echo "Building BIGSS Util..........."
-cd $BASE_FOLDER/util
-sudo mkdir -p build
-cd build
-cmake .. -GNinja -DBIGSS_BUILD_audio=ON -DBIGSS_BUILD_bigssMath=ON  -DBIGSS_BUILD_exe=ON  -DBIGSS_BUILD_fbgInterrogator=ON -DBIGSS_BUILD_filter=ON -DBIGSS_BUILD_maxonControl=ON -DBIGSS_BUILD_maxonUI=ON -DBIGSS_BUILD_polaris=ON  -DBIGSS_BUILD_qled=ON -DBIGSS_BUILD_sharedMemory=ON -DBIGSS_BUILD_universalRobot=ON 
-ninja
-ninja install
+
+# # IMPORT OTHER REPOS AND BUILD
+# cd $BASE_FOLDER
+# vcs import < ../bigss_repos.rosinstall --workers 1 # TODO: change the reliant piece of this
+# # Update to install the latest versions
+# vcs pull src
+
+# # Build BIGSS Util 
+# echo "Building BIGSS Util..........."
+# cd $BASE_FOLDER/util
+# mkdir build
+# cd build
+# cmake .. -GNinja -Dcisst_DIR=$BASE_FOLDER/catkin_ws/src/cisst-saw/cisst -DBIGSS_BUILD_audio=ON -DBIGSS_BUILD_bigssMath=ON  -DBIGSS_BUILD_exe=ON  -DBIGSS_BUILD_fbgInterrogator=ON -DBIGSS_BUILD_filter=ON -DBIGSS_BUILD_maxonControl=ON -DBIGSS_BUILD_maxonUI=ON -DBIGSS_BUILD_polaris=ON  -DBIGSS_BUILD_qled=ON -DBIGSS_BUILD_sharedMemory=ON -DBIGSS_BUILD_universalRobot=ON 
+# ninja
+# ninja install
 
 # # Install BIGSS snake
 # echo "Building BIGSS snake..........."
