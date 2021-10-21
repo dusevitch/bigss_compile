@@ -105,6 +105,9 @@ fi
 # # TODO: Check that CMAKE version is at least 3.19.8
 # # TODO: Check that qmake is at least QT 5.15.2 installed
 
+
+
+
 # Create a workspace
 mkdir -p $BASE_FOLDER/catkin_ws/src
 cd $BASE_FOLDER/catkin_ws
@@ -114,26 +117,30 @@ catkin config --cmake-args -DCMAKE_BUILD_TYPE=Release
 
 
 # run .rosinstall file
-# TODO: determine which of these we absolutely need to run our code and remove others
-cd $BASE_FOLDER/catkin_ws
-vcs import < ../../cisst_repos.rosinstall --workers 1 # TODO: change the reliant piece of this
+# TODO: determine which of these git files we absolutely need to run our code and remove others
+cd $BASE_FOLDER/catkin_ws #TODO: make this navigate to correct place for rosinstall files
+vcs import < ../../rosinstall_files/cisst_repos.rosinstall # TODO: change the reliant piece of this
 vcs pull src
 
-# # # -------------------------------------- BUILD --------------------------------------
-# echo "------------------BUILDING STARTED-------------------"
+# # -------------------------------------- BUILD --------------------------------------
+echo "------------------BUILDING STARTED-------------------"
 
 # Build cisst-saw
 echo "Building CISST-SAW..........."
-cd $BASE_FOLDER/catkin_ws/
-source /opt/ros/$VERSION/setup.bash
+cd $BASE_FOLDER/catkin_ws/src/cisst-saw/sawConstraintController
+git checkout -b bigss_dev_commit 0e604050d9fb04dce64554a471bed915e7288e87 
 cd $BASE_FOLDER/catkin_ws
 catkin build --summary
-source devel/setup.bash
+# source devel/setup.bash
+
+
+
+
 
 # IMPORT OTHER REPOS AND BUILD
 cd $BASE_FOLDER
 git config --global credential.helper 'cache --timeout=12000' # TODO make time shorter here
-vcs import < ../bigss_repos.rosinstall --workers 1
+vcs import < ../rosinstall_files/bigss_repos.rosinstall --workers 1
 vcs pull src # Update to install the latest versions
 
 # Build BIGSS Util 
@@ -157,21 +164,12 @@ ninja && ninja install
 # # Install NLOPT 
 # echo "Installing NLOPT..........."
 cd $BASE_FOLDER/nlopt
-cmake . -DNLopt_DIR=$BASE_FOLDER/nlopt/build && ninja && ninja install
+cmake . -GNinja -DNLopt_DIR=$BASE_FOLDER/nlopt/build && ninja && ninja install
 
-# # Build bigssRoboticSystem
-# echo "Building bigssRoboticSystem..........."
-cd $BASE_FOLDER/catkin_ws/src/bigssRoboticSystem
+
+# # # Build bigssRoboticSystem
+echo "Building bigssRoboticSystem..........."
+cd $BASE_FOLDER/catkin_ws/
 catkin build
 
-
-
- cd ..;sudo rm -r test; mkdir test; cd test
-./../bigssRoboticSystemInstall.sh -b ~/bigss_compile/test -d false
-
-
-// go into the test folder
-sudo rm -r util snake nlopt;cd catkin_ws/src; sudo rm -r Universal_Robots_ROS_Driver fmauch_universal_robot; cd ../..
-
-sudo rm -r util snake nlopt;cd catkin_ws/src; sudo rm -r bigssRoboticSystem bigss_spine Universal_Robots_ROS_Driver fmauch_universal_robot;cd ../..
 

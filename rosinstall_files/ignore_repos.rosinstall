@@ -1,0 +1,78 @@
+- git:
+    local-name: snake
+    uri: https://git.lcsr.jhu.edu/bigss/snake.git
+    version: master
+- git:
+    local-name: catkin_ws/src/Universal_Robots_ROS_Driver
+    uri: https://github.com/UniversalRobots/Universal_Robots_ROS_Driver.git
+    version: master
+- git:
+    local-name: catkin_ws/src/fmauch_universal_robot
+    uri: https://github.com/fmauch/universal_robot.git
+    version: calibration_devel
+
+
+
+
+- git:
+    local-name: src/cisst-saw/sawATIForceSensor 
+    uri: https://github.com/jhu-saw/sawATIForceSensor.git
+    version: a6acaf6
+- git:
+    local-name: src/cisst-saw/sawClaronMicronTracker 
+    uri: https://github.com/jhu-saw/sawClaronMicronTracker.git
+    version: bb809ab
+- git:
+    local-name: src/cisst-saw/sawForceDimensionSDK 
+    uri: https://github.com/jhu-saw/sawForceDimensionSDK.git
+    version: 13557d4
+- git:
+    local-name: src/cisst-saw/sawOptoforceSensor 
+    uri: https://github.com/jhu-saw/sawOptoforceSensor.git
+    version: 35c2150
+- git:
+    local-name: src/cisst-saw/sawUniversalRobot 
+    uri: https://github.com/jhu-saw/sawUniversalRobot.git
+    version: eaefd30
+
+
+- git:
+    local-name: src/cisst-saw/sawTextToSpeech 
+    uri: https://github.com/jhu-saw/sawTextToSpeech.git
+    version: 0abf6ae
+- git:
+    local-name: src/cisst-saw/sawSensablePhantom 
+    uri: https://github.com/jhu-saw/sawSensablePhantom.git
+    version: b8dd495
+- git:
+    local-name: src/cisst-saw/sawNovintFalcon 
+    uri: https://github.com/jhu-saw/sawNovintFalcon.git
+    version: 82a253b
+- git:
+    local-name: src/cisst-saw/sawMedtronicStealthlink 
+    uri: https://github.com/jhu-saw/sawMedtronicStealthlink.git
+    version: 8769f48
+- git:
+    local-name: src/cisst-saw/sawMicroScribeDigitizer 
+    uri: https://github.com/jhu-saw/sawMicroScribeDigitizer.git
+    version: 748028b
+- git:
+    local-name: src/cisst-saw/sawCMUSphinx4 
+    uri: https://github.com/jhu-saw/sawCMUSphinx4.git
+    version: fc64c3c
+- git:
+    local-name: src/cisst-saw/sawIntuitiveResearchKit 
+    uri: https://github.com/jhu-saw/sawIntuitiveResearchKit.git
+    version: 2e6d3e3
+- git:
+    local-name: src/cisst-saw/sawIntuitiveDaVinci 
+    uri: https://github.com/jhu-saw/sawIntuitiveDaVinci.git
+    version: 55dc25f
+- git:
+    local-name: src/cisst-saw/sawBarrett 
+    uri: https://github.com/jhu-saw/sawBarrett.git
+    version: c466a54
+- git:
+    local-name: src/cisst-saw/sawRobotIO1394 
+    uri: https://github.com/jhu-saw/sawRobotIO1394.git
+    version: 8040de6
