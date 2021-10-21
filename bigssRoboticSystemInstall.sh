@@ -139,7 +139,7 @@ catkin build --summary
 
 # IMPORT OTHER REPOS AND BUILD
 cd $BASE_FOLDER
-git config --global credential.helper 'cache --timeout=12000' # TODO make time shorter here
+git config --global credential.helper 'cache --timeout=120' # TODO make time shorter here
 vcs import < ../rosinstall_files/bigss_repos.rosinstall --workers 1
 vcs pull src # Update to install the latest versions
 

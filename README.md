@@ -19,6 +19,8 @@ Then include this directory as your path for the BIGSS system (will update this 
 sudo ./../bigssRoboticSystemInstall.sh -v melodic -b [path_to_cloned_folder]/bigss_compile/bigss [-d true]
 ```
 
+This will take some time to compile depending on your computer (~4-5 min on avg).  You will be asked for your appropriate GitLab credentials.
+
 
 
 ### DEFINITIONS
