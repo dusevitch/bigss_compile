@@ -3,6 +3,10 @@
     uri: https://git.lcsr.jhu.edu/bigss/util.git
     version: master
 - git:
+    local-name: catkin_ws/src/bigss_spine
+    uri: https://git.lcsr.jhu.edu/bigss/bigssRoboticSystem.git
+    version: master
+- git:
     local-name: nlopt
     uri: https://github.com/stevengj/nlopt.git
     version: 29e76303c564f892c04716f90ef1801a711f8880
