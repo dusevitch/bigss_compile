@@ -69,7 +69,7 @@ Please include errors you run into in the "Issues" section so I can update this 
 
 ### TODOS
 
-* Working Installation of bigssRoboticSystem
+* Change Installation of bigssRoboticSystem so `catkin build` doesn't have to be run multiple times
 
 * Working Integration with Slicer
 

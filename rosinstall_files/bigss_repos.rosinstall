@@ -3,7 +3,7 @@
     uri: https://git.lcsr.jhu.edu/bigss/util.git
     version: master
 - git:
-    local-name: catkin_ws/src/bigss_spine
+    local-name: catkin_ws/src/bigssRoboticSystem
     uri: https://git.lcsr.jhu.edu/bigss/bigssRoboticSystem.git
     version: master
 - git:

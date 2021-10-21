@@ -131,7 +131,7 @@ source devel/setup.bash
 
 # IMPORT OTHER REPOS AND BUILD
 cd $BASE_FOLDER
-git config --global credential.helper 'cache --timeout=120' # TODO make time shorter here
+git config --global credential.helper 'cache --timeout=1200' # TODO make time shorter here
 vcs import < ../rosinstall_files/bigss_repos.rosinstall --workers 1
 vcs pull src # Update to install the latest versions
 
@@ -163,5 +163,9 @@ echo "Building bigssRoboticSystem..........."
 # TODO ADD bigssRoboticSystem build functions here
 cd $BASE_FOLDER/catkin_ws/
 catkin build
-
-
+sleep 5s
+catkin build
+sleep 5s
+catkin build
+sleep 5s
+catkin build
