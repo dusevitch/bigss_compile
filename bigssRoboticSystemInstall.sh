@@ -25,7 +25,7 @@
 # OTHER INFO
 #   Authors: David Usevitch (usevitch@jhu.edu), Henry Phalen(hphalen@jhu.edu)
 #   File Created: 2021-10-12 15:09:34
-#   Last Updated: 2021-10-21 10:32:40
+#   Last Updated: 2021-10-21 14:09:40
 # 
 # INPUTS:
 #   -v (optional): Version of ROS running: e.g. 'melodic' (default is melodic)
@@ -105,16 +105,12 @@ fi
 # # TODO: Check that CMAKE version is at least 3.19.8
 # # TODO: Check that qmake is at least QT 5.15.2 installed
 
-
-
-
 # Create a workspace
 mkdir -p $BASE_FOLDER/catkin_ws/src
 cd $BASE_FOLDER/catkin_ws
 source /opt/ros/$VERSION/setup.bash 
 catkin init
 catkin config --cmake-args -DCMAKE_BUILD_TYPE=Release
-
 
 # run .rosinstall file
 # TODO: determine which of these git files we absolutely need to run our code and remove others
@@ -131,11 +127,7 @@ cd $BASE_FOLDER/catkin_ws/src/cisst-saw/sawConstraintController
 git checkout -b bigss_dev_commit 0e604050d9fb04dce64554a471bed915e7288e87 
 cd $BASE_FOLDER/catkin_ws
 catkin build --summary
-# source devel/setup.bash
-
-
-
-
+source devel/setup.bash
 
 # IMPORT OTHER REPOS AND BUILD
 cd $BASE_FOLDER
@@ -151,7 +143,7 @@ cd build
 cmake .. -GNinja -Dcisst_DIR=$BASE_FOLDER/catkin_ws/devel/cmake -DBIGSS_BUILD_audio=ON -DBIGSS_BUILD_bigssMath=ON  -DBIGSS_BUILD_exe=ON  -DBIGSS_BUILD_fbgInterrogator=ON -DBIGSS_BUILD_filter=ON -DBIGSS_BUILD_maxonControl=ON -DBIGSS_BUILD_maxonUI=ON -DBIGSS_BUILD_polaris=ON  -DBIGSS_BUILD_qled=ON -DBIGSS_BUILD_sharedMemory=ON -DBIGSS_BUILD_universalRobot=ON 
 ninja && ninja install
 
-# TODO: ADD THIS FOR THE FUTURE?
+# # TODO: ADD THIS FOR THE FUTURE?
 # # Install BIGSS snake  
 # echo "Building BIGSS snake..........."
 # cd $BASE_FOLDER/snake
@@ -161,14 +153,14 @@ ninja && ninja install
 # ninja
 
 # TODO: update with latest NLOPT version
-# # Install NLOPT 
-# echo "Installing NLOPT..........."
+# Install NLOPT 
+echo "Installing NLOPT..........."
 cd $BASE_FOLDER/nlopt
 cmake . -GNinja -DNLopt_DIR=$BASE_FOLDER/nlopt/build && ninja && ninja install
 
-
-# # # Build bigssRoboticSystem
+# Build bigssRoboticSystem
 echo "Building bigssRoboticSystem..........."
+# TODO ADD bigssRoboticSystem build functions here
 cd $BASE_FOLDER/catkin_ws/
 catkin build
 

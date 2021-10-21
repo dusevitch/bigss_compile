@@ -4,6 +4,22 @@ This script installs the full BIGSS Robotic system and needed dependencies.
 
 
 
+### CURRENT DEPENDENCIES
+
+These are not yet automatically loaded
+
+* FTDI Driver
+
+* Maxxon Control Drivers
+
+* (not required here, but will be for future versions):
+
+  *  Slicer 4.11 ??
+  * Qt 15.5.2
+  * CMAKE 3.19.8
+
+  
+
 ### INSTALLATION
 
 To install clone this folder and create a new directory:
@@ -57,7 +73,7 @@ Please include errors you run into in the "Issues" section so I can update this 
 
 * Working Integration with Slicer
 
-* Checking and automatic installation of FLTK and Maxxon Controllers
+* Checking and automatic installation of FTDI and Maxxon Controllers
 
 * update `cisst_repos.rosinstall` to only include necessary repos (i've eliminated most, but I'm sure there are more)
 
