@@ -172,3 +172,6 @@ sleep 5s
 catkin build
 sleep 5s
 catkin build
+
+# Change permissions of folders since make with sudo
+chmod 775 -R $BASE_DIR/catkin_ws/src/bigssRoboticSystem/ 
