@@ -15,74 +15,10 @@
     uri: https://github.com/collaborative-robotics/crtk_msgs.git
     version: master
 - git:
-    local-name: src/cisst-saw/saw3Dconnexion 
-    uri: https://github.com/jhu-saw/saw3Dconnexion.git
-    version: c826fe7
-- git:
-    local-name: src/cisst-saw/sawAtracsysFusionTrack 
-    uri: https://github.com/jhu-saw/sawAtracsysFusionTrack.git
-    version: deabf5d
-- git:
-    local-name: src/cisst-saw/sawCANBus 
-    uri: https://github.com/jhu-saw/sawCANBus.git
-    version: e5bc62c
-- git:
-    local-name: src/cisst-saw/sawControllers 
-    uri: https://github.com/jhu-saw/sawControllers.git
-    version: 6d81051
-- git:
-    local-name: src/cisst-saw/sawConstraintController 
-    uri: https://github.com/jhu-saw/sawConstraintController.git
-    version: 6d81051
-- git:
-    local-name: src/cisst-saw/sawDataPlayer 
-    uri: https://github.com/jhu-saw/sawDataPlayer.git
-    version: 30c7067
-- git:
-    local-name: src/cisst-saw/sawGLUTSimulator 
-    uri: https://github.com/jhu-saw/sawGLUTSimulator.git
-    version: 2e2a758
-- git:
-    local-name: src/cisst-saw/sawJR3ForceSensor 
-    uri: https://github.com/jhu-saw/sawJR3ForceSensor.git
-    version: 59f9ef4
-- git:
-    local-name: src/cisst-saw/sawKeyboard 
-    uri: https://github.com/jhu-saw/sawKeyboard.git
-    version: a20dea2
-- git:
     local-name: src/cisst-saw/sawNDITracker 
     uri: https://github.com/jhu-saw/sawNDITracker.git
     version: c81e7d0
 - git:
-    local-name: src/cisst-saw/sawOpenAL 
-    uri: https://github.com/jhu-saw/sawOpenAL.git
-    version: 67abe93
-- git:
-    local-name: src/cisst-saw/sawOpenDynamicsEngine 
-    uri: https://github.com/jhu-saw/sawOpenDynamicsEngine.git
-    version: 45111a8
-- git:
-    local-name: src/cisst-saw/sawOpenIGTLink
-    uri: https://github.com/jhu-saw/sawOpenIGTLink.git
-    version: devel
-- git:
-    local-name: src/cisst-saw/sawOpenNI 
-    uri: https://github.com/jhu-saw/sawOpenNI.git
-    version: 6b55758
-- git:
-    local-name: src/cisst-saw/sawOpenSceneGraph 
-    uri: https://github.com/jhu-saw/sawOpenSceneGraph.git
-    version: 01d1a7c
-- git:
-    local-name: src/cisst-saw/sawSartoriusScale 
-    uri: https://github.com/jhu-saw/sawSartoriusScale.git
-    version: f1868fc
-- git:
-    local-name: src/cisst-saw/sawSocketStreamer 
-    uri: https://github.com/jhu-saw/sawSocketStreamer.git
-    version: 266a42c
-- git:
-    local-name: src/cisst-saw/sawTrajectories 
-    uri: https://github.com/jhu-saw/sawTrajectories.git
-    version: 24c1866
+    local-name: src/cisst-saw/sawConstraintController 
+    uri: https://github.com/jhu-saw/sawConstraintController.git
+    version: 6d81051

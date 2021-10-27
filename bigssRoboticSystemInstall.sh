@@ -34,7 +34,10 @@
 #
 # EXAMPLE USE:
 #   ./bigssRoboticSystemInstall.sh [-v melodic] [-b ~/bigss] [-d true]
+#   sudo ./../bigssRoboticSystemInstall.sh -b ~/bigss -d false
 #########################################################################
+
+sudo git config --global credential.helper 'cache --timeout=1200' # TODO make time shorter here
 
 # Read input flags
 while getopts v:b:d: flag
@@ -111,18 +114,18 @@ fi
 # Create a workspace
 mkdir -p $BASE_DIR/catkin_ws/src
 cd $BASE_DIR/catkin_ws
-source /opt/ros/$VERSION/setup.bash 
+source /opt/ros/$VERSION/setup.bash
 catkin init
 catkin config --cmake-args -DCMAKE_BUILD_TYPE=Release
 
+
+# # -------------------------------------- BUILD --------------------------------------
+echo "------------------BUILDING CISST -------------------"
 # run .rosinstall file
 # TODO: determine which of these git files we absolutely need to run our code and remove others
 cd $BASE_DIR/catkin_ws #TODO: make this navigate to correct place for rosinstall files
 vcs import < $CURRENT_DIR/rosinstall_files/cisst_repos.rosinstall # TODO: change the reliant piece of this
 vcs pull src
-
-# # -------------------------------------- BUILD --------------------------------------
-echo "------------------BUILDING STARTED-------------------"
 
 # Build cisst-saw
 echo "Building CISST-SAW..........."
@@ -132,9 +135,10 @@ cd $BASE_DIR/catkin_ws
 catkin build --summary
 source devel/setup.bash
 
+echo "------------------BUILDING OTHER REPOS -------------------"
+
 # IMPORT OTHER REPOS AND BUILD
 cd $BASE_DIR
-git config --global credential.helper 'cache --timeout=1200' # TODO make time shorter here
 vcs import < $CURRENT_DIR/rosinstall_files/bigss_repos.rosinstall --workers 1
 vcs pull src # Update to install the latest versions
 
@@ -161,17 +165,22 @@ echo "Installing NLOPT..........."
 cd $BASE_DIR/nlopt
 cmake . -GNinja -DNLopt_DIR=$BASE_DIR/nlopt/build && ninja && ninja install
 
+# Build Universal_Robots_ROS_Driver 
+# Build fmauch_universal_robot 
+
+rm -r $BASE_DIR/catkin_ws/src/bigssRoboticSystem/bigssRoboticSystem/examples/ex_bigssRobSys_urpolclc/example_external/ur_description
+
+cd $BASE_DIR/catkin_ws
+rosdep update
+sudo apt-get update
+rosdep install --from-paths src --ignore-src -y
+
 # Build bigssRoboticSystem
 echo "Building bigssRoboticSystem..........."
 # TODO ADD bigssRoboticSystem build functions here
 cd $BASE_DIR/catkin_ws/
 catkin build
-sleep 5s
+sleep 1s
 catkin build
-sleep 5s
+sleep 1s
 catkin build
-sleep 5s
-catkin build
-
-# Change permissions of folders since make with sudo
-chmod 775 -R $BASE_DIR/catkin_ws/src/bigssRoboticSystem/ 

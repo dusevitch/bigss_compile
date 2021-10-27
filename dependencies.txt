@@ -13,3 +13,12 @@ libcppunit-dev
 libqt5xmlpatterns5-dev
 python-catkin-tools
 ninja-build
+ros-melodic-moveit 
+ros-melodic-moveit-plugins 
+ros-melodic-industrial-robot-status-interface
+ros-melodic-scaled-joint-trajectory-controller
+ros-melodic-speed-scaling-interface
+ros-melodic-speed-scaling-state-controller
+ros-melodic-ur-msgs
+ros-melodic-pass-through-controllers
+ros-melodic-ur-client-library

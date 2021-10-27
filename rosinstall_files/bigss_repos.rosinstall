@@ -3,6 +3,10 @@
     uri: https://git.lcsr.jhu.edu/bigss/util.git
     version: master
 - git:
+    local-name: catkin_ws/src/fmauch_universal_robot
+    uri: https://github.com/fmauch/universal_robot.git
+    version: calibration_devel
+- git:
     local-name: catkin_ws/src/bigssRoboticSystem
     uri: https://git.lcsr.jhu.edu/bigss/bigssRoboticSystem.git
     version: master
@@ -10,3 +14,7 @@
     local-name: nlopt
     uri: https://github.com/stevengj/nlopt.git
     version: 29e76303c564f892c04716f90ef1801a711f8880
+- git:
+    local-name: catkin_ws/src/Universal_Robots_ROS_Driver
+    uri: https://github.com/UniversalRobots/Universal_Robots_ROS_Driver.git
+    version: master

@@ -24,7 +24,11 @@ These are not yet automatically loaded, so be sure they are installed properly o
 
 ### INSTALLATION
 
-To install clone this folder and create a new directory:
+
+
+To install first copy the install file from the bigssRoboticSystem folder somewhere (you don't have to clone the whole repo), 
+
+Then create a new directory where the whole bigss system will reside:
 
 ```bash
 mkdir ~/bigss
